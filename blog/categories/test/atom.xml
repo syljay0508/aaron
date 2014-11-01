@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[马栈]]></title>
-  <link href="http://syljay0508.github.io/aaron/atom.xml" rel="self"/>
+  <title><![CDATA[分类：test | 马栈]]></title>
+  <link href="http://syljay0508.github.io/aaron/blog/categories/test/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
   <updated>2014-11-02T03:17:42+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
