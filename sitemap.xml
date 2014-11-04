@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://syljay0508.github.io/aaron/blog/octopresschang-yong-zhi-ling/</loc>
+    <lastmod>2014-11-02T19:47:33+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://syljay0508.github.io/aaron/blog/new-post/</loc>
     <lastmod>2014-11-02T03:15:25+08:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://syljay0508.github.io/aaron/blog/archives/</loc>
-    <lastmod>2014-11-02T17:31:27+08:00</lastmod>
+    <lastmod>2014-11-04T19:55:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://syljay0508.github.io/aaron/</loc>
-    <lastmod>2014-11-02T17:31:27+08:00</lastmod>
+    <lastmod>2014-11-04T19:55:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://syljay0508.github.io/aaron/aboutme/</loc>
-    <lastmod>2014-11-02T17:31:27+08:00</lastmod>
+    <lastmod>2014-11-04T19:55:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[马栈]]></title>
-  <link href="http://syljay0508.github.io/aaron/atom.xml" rel="self"/>
+  <title><![CDATA[分类：octopress | 马栈]]></title>
+  <link href="http://syljay0508.github.io/aaron/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
   <updated>2014-11-04T19:55:23+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
@@ -25,15 +25,6 @@
 <pre><code>cd octopress
 </code></pre>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My First Blog]]></title>
-    <link href="http://syljay0508.github.io/aaron/blog/new-post/"/>
-    <updated>2014-11-02T03:15:25+08:00</updated>
-    <id>http://syljay0508.github.io/aaron/blog/new-post</id>
-    <content type="html"><![CDATA[<p>博客搬家了, 投入<code>Octopress</code>的怀抱了. 可以尽情的写作了. PS:构建难度还是不小的</p>
 ]]></content>
   </entry>
   
