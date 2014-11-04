@@ -4,7 +4,7 @@
   <title><![CDATA[分类：octopress | 马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T19:55:23+08:00</updated>
+  <updated>2014-11-04T20:32:44+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -24,6 +24,76 @@
 
 <pre><code>cd octopress
 </code></pre>
+
+<p>然后就是各种操作了:</p>
+
+<ol>
+  <li>
+    <p>create一个你的新文章:</p>
+
+    <pre><code> rake new_post["your_title"]
+</code></pre>
+  </li>
+  <li>
+    <p>create一个新页面:</p>
+
+    <pre><code> rake new_page[your_title/newpage.html]
+</code></pre>
+
+    <p>这样会在your_title文件夹下生成一个newpage.html的文件, 部署后可以这样访问</p>
+
+    <pre><code> http://[your_domain_name]/your-title/newpage.html
+</code></pre>
+  </li>
+  <li>
+    <p>setup</p>
+
+    <pre><code> rake generate
+</code></pre>
+
+    <p>执行完octopress会根据修改过的内容重新排版和部署, 但这只是在本地.</p>
+  </li>
+  <li>
+    <p>push</p>
+
+    <pre><code> rake deploy
+</code></pre>
+
+    <p>部署完如果你觉得可以的话就可以push到server上了</p>
+
+    <p>如果你想把文件放到Github上可以这样:</p>
+
+    <pre><code> git add .
+ git commit -m "备注内容"
+ git push origin source
+</code></pre>
+  </li>
+</ol>
+
+<h4 id="codeblock">CodeBlock使用方法</h4>
+
+<pre><code>{ % coderay [lang:lang] [linenos:true|false(default)] [title] [url] 	[link text] % }
+代码片段
+{ % endcoderay % } 其中:
+</code></pre>
+
+<ul>
+  <li><code>lang:</code>代码使用的语言</li>
+  <li><code>linenos:</code>是否带行号<code>true</code>/<code>false</code>, 缺省默认false</li>
+  <li><code>title:</code>代码框标题</li>
+  <li><code>url:</code>链接, 可以使用下载代码链接</li>
+  <li>
+    <p><code>link text:</code>链接处的文字, 比如<code>Download</code></p>
+
+    <p>example:</p>
+
+    <pre><code>  { % coderay [lang:objc] [linenos:true] [test] [www.google.com] 	[google一下] % }
+  NSString *str = [[NSString alloc] init];
+  NSArray *arr = @[@"哈哈", str];
+  { % endcoderay % }
+</code></pre>
+  </li>
+</ul>
 
 ]]></content>
   </entry>
