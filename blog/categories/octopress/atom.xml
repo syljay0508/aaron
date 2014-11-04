@@ -4,7 +4,7 @@
   <title><![CDATA[分类：octopress | 马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T21:40:51+08:00</updated>
+  <updated>2014-11-04T21:43:55+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -72,12 +72,13 @@
 
 <h4 id="codeblock">CodeBlock使用方法</h4>
 
-<pre><code><figure class='code'><figcaption><span>test</span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="bp">NSString</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-</span><span class='line'><span class="bp">NSArray</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&quot;哈哈&quot;</span><span class="p">,</span> <span class="n">str</span><span class="l">]</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
+<pre><code>{ % codeblock test lang:objc % }
+
+NSString *str = [[NSString alloc] init];
+NSArray *arr = @[@"哈哈", str];
+
+{ % endcodeblock % }
+//书写时请去掉{和%之间的空格
 </code></pre>
 
 <p>或者简写成:</p>

@@ -4,7 +4,7 @@
   <title><![CDATA[马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T21:40:51+08:00</updated>
+  <updated>2014-11-04T21:43:55+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -72,14 +72,14 @@
 
 <h4 id="codeblock">CodeBlock使用方法</h4>
 
-<pre><code>&lt;div class='bogus-wrapper'&gt;&lt;notextile&gt;&lt;figure class='code'&gt;&lt;figcaption&gt;&lt;span&gt;test&lt;/span&gt;&lt;/figcaption&gt; &lt;div class="highlight"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre class="line-numbers"&gt;&lt;span class='line-number'&gt;1&lt;/span&gt; &lt;span class='line-number'&gt;2&lt;/span&gt; &lt;span class='line-number'&gt;3&lt;/span&gt; &lt;span class='line-number'&gt;4&lt;/span&gt; &lt;span class='line-number'&gt;5&lt;/span&gt;
+<pre><code>{ % codeblock test lang:objc % }
+
+NSString *str = [[NSString alloc] init];
+NSArray *arr = @[@"哈哈", str];
+
+{ % endcodeblock % }
+//书写时请去掉{和%之间的空格
 </code></pre>
-<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line">	
-</span><span class="line">	<span class="bp">NSString</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-</span><span class="line">	<span class="bp">NSArray</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&quot;哈哈&quot;</span><span class="p">,</span> <span class="n">str</span><span class="l">]</span><span class="p">;</span>
-</span><span class="line">	
-</span><span class="line">	
-</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
 
 <p>或者简写成:</p>
 
