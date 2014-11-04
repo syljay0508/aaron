@@ -4,7 +4,7 @@
   <title><![CDATA[分类：octopress | 马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T21:43:55+08:00</updated>
+  <updated>2014-11-04T21:57:11+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -73,10 +73,8 @@
 <h4 id="codeblock">CodeBlock使用方法</h4>
 
 <pre><code>{ % codeblock test lang:objc % }
-
 NSString *str = [[NSString alloc] init];
 NSArray *arr = @[@"哈哈", str];
-
 { % endcodeblock % }
 //书写时请去掉{和%之间的空格
 </code></pre>
@@ -97,6 +95,14 @@ NSString *str = [[NSString alloc] init];
 <p>NSString *str = [[NSString alloc] init];</p>
 
 <p>&#8220;`</p>
+
+<p>更多细节请参考:</p>
+
+<p><a href="http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/">《生命之氢:Octopress 教程目录》</a></p>
+
+<p><a href="http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/">《破船之家:利用Octopress搭建一个Github博客》</a></p>
+
+<p><a href="http://beyondvincent.com/blog/2013/07/27/107-hello-page-of-github/">《破船之家:你好！github页面》</a></p>
 
 ]]></content>
   </entry>
