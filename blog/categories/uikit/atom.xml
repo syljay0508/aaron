@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类：uikit | 马栈]]></title>
+  <link href="http://syljay0508.github.io/aaron/blog/categories/uikit/atom.xml" rel="self"/>
+  <link href="http://syljay0508.github.io/aaron/"/>
+  <updated>2014-11-04T22:07:11+08:00</updated>
+  <id>http://syljay0508.github.io/aaron/</id>
+  <author>
+    <name><![CDATA[Aaron]]></name>
+    <email><![CDATA[syljay0508@hotmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[使用自定义字体]]></title>
+    <link href="http://syljay0508.github.io/aaron/blog/shi-yong-zi-ding-yi-zi-ti/"/>
+    <updated>2014-11-02T22:03:58+08:00</updated>
+    <id>http://syljay0508.github.io/aaron/blog/shi-yong-zi-ding-yi-zi-ti</id>
+    <content type="html"><![CDATA[<p>只需在<code>Info.plist</code>文件设置<code>UIAppFonts</code>相关信息即可.</p>
+
+<ol>
+  <li>将自定义字体加到你的工程资源文件中</li>
+  <li>在 info.plist 文件中增加一名为 UIAppFonts 的key(按下回车系统会改成<code>Fonts provided by application</code>)</li>
+  <li>将这个key修改成array</li>
+  <li>将你用到的所有字体的名字，作为这个array的值，一项一项填进去（包括扩展名）</li>
+  <li>保存 info.plist</li>
+</ol>
+
+<p>现在就可以在代码中直接用[UIFont fontWithName:@”CustomFontName” size:12]来取得你自定义的字体了。</p>
+]]></content>
+  </entry>
+  
+</feed>

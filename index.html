@@ -7,7 +7,7 @@
 	<meta name="author" content="Aaron">
 
 	
-	<meta name="description" content="octopress Octopress常用指令 博客已经完成, 记录一下常用到的command 在执行任何博客操作的前提是我们进入到这个Octopress目录 cd octopress 然后就是各种操作了: create一个你的新文章: rake new_post["your_title"] &hellip;">
+	<meta name="description" content="uikit 使用自定义字体 只需在Info.plist文件设置UIAppFonts相关信息即可. 将自定义字体加到你的工程资源文件中 在 info.plist 文件中增加一名为 UIAppFonts 的key(按下回车系统会改成Fonts provided by application) &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -111,6 +111,51 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-02T22:03:58+08:00" data-updated="true" itemprop="datePublished"></time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/aaron/blog/categories/uikit/'>uikit</a>
+
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/aaron/blog/shi-yong-zi-ding-yi-zi-ti/" itemprop="url">使用自定义字体</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>只需在<code>Info.plist</code>文件设置<code>UIAppFonts</code>相关信息即可.</p>
+
+<ol>
+  <li>将自定义字体加到你的工程资源文件中</li>
+  <li>在 info.plist 文件中增加一名为 UIAppFonts 的key(按下回车系统会改成<code>Fonts provided by application</code>)</li>
+  <li>将这个key修改成array</li>
+  <li>将你用到的所有字体的名字，作为这个array的值，一项一项填进去（包括扩展名）</li>
+  <li>保存 info.plist</li>
+</ol>
+
+<p>现在就可以在代码中直接用[UIFont fontWithName:@”CustomFontName” size:12]来取得你自定义的字体了。</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
