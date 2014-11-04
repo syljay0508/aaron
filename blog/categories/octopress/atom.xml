@@ -4,7 +4,7 @@
   <title><![CDATA[分类：octopress | 马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T21:13:24+08:00</updated>
+  <updated>2014-11-04T21:30:13+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -95,6 +95,12 @@
 </pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="bp">NSString</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 </span><span class='line'><span class="bp">NSArray</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="l">@[</span><span class="p">@</span><span class="err">”哈哈”</span><span class="p">,</span> <span class="n">str</span><span class="l">]</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure></p>
+
+<p>&#8220;` objc</p>
+
+<p>NSString *str = [[NSString alloc] init];</p>
+
+<p>&#8220;`</p>
 
 ]]></content>
   </entry>
