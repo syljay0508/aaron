@@ -4,7 +4,7 @@
   <title><![CDATA[马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T22:17:56+08:00</updated>
+  <updated>2014-11-04T22:29:54+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -12,6 +12,220 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[内购]]></title>
+    <link href="http://syljay0508.github.io/aaron/blog/nei-gou/"/>
+    <updated>2014-11-04T22:19:31+08:00</updated>
+    <id>http://syljay0508.github.io/aaron/blog/nei-gou</id>
+    <content type="html"><![CDATA[<h3 id="section">前面的话</h3>
+<p>去年做过一个项目的需求其中之一就是解锁所有功能的内购, 于是又是看官方文档又是查博客, 终于总结出来一套内购的详细过程, 分享给新手们.</p>
+
+<h1 id="section-1">内购</h1>
+<p>指通过苹果商店购买App内的虚拟物品</p>
+
+<h4 id="section-2">代码</h4>
+
+<p>本教程只讲代码的实现过程, 具体在iTunes Connect的设置另写</p>
+
+<ul>
+  <li>添加框架<code>StoreKit.framework</code></li>
+  <li>添加头文件</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="objc"><span class="line"><span class="cp">#import &lt;StoreKit/StoreKit.h&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ul>
+  <li>声明内购产品ID宏
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span></figure></notextile></li>
+</ul>
+<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line"><span class="cp">#define kSYLTest.testApp.testProduct @&quot;com.syltest.testApp.testProduct&quot;</span>
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
+
+<ul>
+  <li>声明一个数组, 用来接收内购产品清单
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span></figure></notextile></li>
+</ul>
+<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="bp">NSArray</span> <span class="o">*</span><span class="n">validProducts</span><span class="p">;</span>
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
+
+<ul>
+  <li>购买前, 先通过产品ID请求产品信息, 需要遵守协议<code>SKProductsRequestDelegate</code>
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span></figure></notextile></li>
+</ul>
+<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line"><span class="c1">//根据产品ID实例化一个集合</span>
+</span><span class="line"><span class="bp">NSSet</span> <span class="o">*</span><span class="n">productIdentifiers</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">kTutorialPointProductID</span><span class="p">,</span><span class="nb">nil</span><span class="p">];</span>
+</span><span class="line"><span class="c1">//根据这个集合实例化内购产品信息请求</span>
+</span><span class="line"><span class="bp">SKProductsRequest</span> <span class="o">*</span><span class="n">productsRequest</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">SKProductsRequest</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithProductIdentifiers</span><span class="p">:</span><span class="n">productIdentifiers</span><span class="p">];</span>
+</span><span class="line"><span class="c1">//设置代理</span>
+</span><span class="line">   	<span class="n">productsRequest</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+</span><span class="line">   	<span class="c1">//异步请求</span>
+</span><span class="line">   	<span class="p">[</span><span class="n">productsRequest</span> <span class="n">start</span><span class="p">];</span>
+</span><span class="line">   	
+</span><span class="line"><span class="p">......</span>
+</span><span class="line"><span class="c1">//协议方法</span>
+</span><span class="line"><span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">productsRequest</span><span class="p">:(</span><span class="bp">SKProductsRequest</span> <span class="o">*</span><span class="p">)</span><span class="n">request</span> <span class="nl">didReceiveResponse</span><span class="p">:(</span><span class="bp">SKProductsResponse</span> <span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">{</span>
+</span><span class="line">	<span class="bp">SKProduct</span> <span class="o">*</span><span class="n">validProduct</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+</span><span class="line">	<span class="c1">//response.products是返回相关产品的数组</span>
+</span><span class="line">	<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span><span class="p">.</span><span class="n">products</span> <span class="n">count</span><span class="p">];</span>
+</span><span class="line">	<span class="c1">//数组元素个数大于0表示有产品, 否则没有产品</span>
+</span><span class="line">	<span class="k">if</span> <span class="p">(</span><span class="n">count</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="n">validProducts</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">products</span><span class="p">;</span>
+</span><span class="line">        <span class="n">validProduct</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span><span class="p">.</span><span class="n">products</span> <span class="nl">objectAtIndex</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</span><span class="line">        <span class="c1">//通过产品ID判断对应产品</span>
+</span><span class="line">        <span class="k">if</span> <span class="p">([</span><span class="n">validProduct</span><span class="p">.</span><span class="n">productIdentifier</span>
+</span><span class="line">           <span class="nl">isEqualToString</span><span class="p">:</span><span class="n">kTutorialPointProductID</span><span class="p">])</span> <span class="p">{</span>
+</span><span class="line">           <span class="c1">//产品信息</span>
+</span><span class="line">           <span class="n">NSLog</span><span class="p">(</span><span class="s">&quot;产品名称:%@&quot;</span><span class="p">,</span> <span class="n">validProduct</span><span class="p">.</span><span class="n">localizedTitle</span><span class="p">);</span>
+</span><span class="line">           <span class="n">NSLog</span><span class="p">(</span><span class="s">&quot;产品描述:%@&quot;</span><span class="p">,</span> <span class="n">validProduct</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+</span><span class="line">           <span class="n">NSLog</span><span class="p">(</span><span class="s">&quot;产品名称:%@&quot;</span><span class="p">,</span> <span class="n">validProduct</span><span class="p">.</span><span class="n">price</span><span class="p">);</span>
+</span><span class="line">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="line">		<span class="c1">//没有对应产品</span>
+</span><span class="line">        <span class="bp">UIAlertView</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIAlertView</span> <span class="n">alloc</span><span class="p">]</span>
+</span><span class="line">                            <span class="nl">initWithTitle</span><span class="p">:</span><span class="s">@&quot;Not Available&quot;</span>
+</span><span class="line">                            <span class="nl">message</span><span class="p">:</span><span class="s">@&quot;No products to purchase&quot;</span>
+</span><span class="line">                            <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span>
+</span><span class="line">                            <span class="nl">cancelButtonTitle</span><span class="p">:</span><span class="nb">nil</span>
+</span><span class="line">                            <span class="nl">otherButtonTitles</span><span class="p">:</span><span class="s">@&quot;Ok&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+</span><span class="line">        <span class="p">[</span><span class="n">tmp</span> <span class="n">show</span><span class="p">];</span>
+</span><span class="line">	<span class="p">}</span>
+</span><span class="line"><span class="p">}</span>
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
+
+<ol>
+  <li>触发购买事件, 遵守协议:<code>SKPaymentTransactionObserver</code>
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span></figure></notextile></li>
+</ol>
+<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line"><span class="c1">//判断设备能否支持购买</span>
+</span><span class="line"><span class="k">if</span> <span class="p">([</span><span class="bp">SKPaymentQueue</span> <span class="n">canMakePayments</span><span class="p">]</span> <span class="o">==</span> <span class="nb">YES</span><span class="p">){</span>
+</span><span class="line">	<span class="c1">//支持购买</span>
+</span><span class="line">	<span class="c1">//根据购买产品实例化支付对象</span>
+</span><span class="line">	 <span class="bp">SKPayment</span> <span class="o">*</span><span class="n">payment</span> <span class="o">=</span> <span class="p">[</span><span class="bp">SKPayment</span> <span class="nl">paymentWithProduct</span><span class="p">:</span><span class="n">validProducts</span><span class="p">[</span><span class="mi">0</span><span class="p">]];</span>
+</span><span class="line">	<span class="c1">//设置交易观察者(代理协议)为当前对象self</span>
+</span><span class="line">   	<span class="p">[[</span><span class="bp">SKPaymentQueue</span> <span class="n">defaultQueue</span><span class="p">]</span> <span class="nl">addTransactionObserver</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+</span><span class="line">   	<span class="c1">//在支付队列中添加支付对象, 并异步请求交易</span>
+</span><span class="line">   	<span class="p">[[</span><span class="bp">SKPaymentQueue</span> <span class="n">defaultQueue</span><span class="p">]</span> <span class="nl">addPayment</span><span class="p">:</span><span class="n">payment</span><span class="p">];</span>
+</span><span class="line"><span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+</span><span class="line">	<span class="n">NSLog</span><span class="p">(</span><span class="s">&quot;该设备不支持购买&quot;</span><span class="p">)</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="p">......</span>
+</span><span class="line"><span class="c1">//协议方法</span>
+</span><span class="line"><span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">paymentQueue</span><span class="p">:(</span><span class="bp">SKPaymentQueue</span> <span class="o">*</span><span class="p">)</span><span class="n">queue</span> <span class="nl">updatedTransactions</span><span class="p">:(</span><span class="bp">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">transactions</span> <span class="p">{</span>
+</span><span class="line"><span class="c1">//遍历返回的交易的数组</span>
+</span><span class="line">	<span class="k">for</span> <span class="p">(</span><span class="bp">SKPaymentTransaction</span> <span class="o">*</span><span class="n">transaction</span> <span class="k">in</span> <span class="n">transactions</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">   		<span class="k">switch</span> <span class="p">(</span><span class="n">transaction</span><span class="p">.</span><span class="n">transactionState</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">   			<span class="c1">//判断交易结果</span>
+</span><span class="line">            <span class="k">case</span> <span class="nl">SKPaymentTransactionStatePurchasing</span><span class="p">:</span>
+</span><span class="line">                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;正在交易&quot;</span><span class="p">);</span>
+</span><span class="line">                <span class="k">break</span><span class="p">;</span>
+</span><span class="line">            <span class="k">case</span> <span class="nl">SKPaymentTransactionStatePurchased</span><span class="p">:</span>
+</span><span class="line">				<span class="k">if</span> <span class="p">([</span><span class="n">transaction</span><span class="p">.</span><span class="n">payment</span><span class="p">.</span><span class="n">productIdentifier</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="n">kTutorialPointProductID</span><span class="p">])</span> <span class="p">{</span>
+</span><span class="line">					<span class="n">NSLog</span><span class="p">(</span><span class="s">&quot;交易完成&quot;</span><span class="p">);</span>
+</span><span class="line">					<span class="c1">//完成交易操作</span>
+</span><span class="line">					<span class="c1">//code here </span>
+</span><span class="line">				<span class="p">}</span>
+</span><span class="line">                <span class="c1">//交易完成后, 在交易队列中清除交易               </span>
+</span><span class="line">                <span class="p">[[</span><span class="bp">SKPaymentQueue</span> <span class="n">defaultQueue</span><span class="p">]</span> <span class="nl">finishTransaction</span><span class="p">:</span><span class="n">transaction</span><span class="p">];</span>
+</span><span class="line">                <span class="k">break</span><span class="p">;</span>
+</span><span class="line">            <span class="k">case</span> <span class="nl">SKPaymentTransactionStateRestored</span><span class="p">:</span>
+</span><span class="line">            <span class="c1">//恢复购买               </span>
+</span><span class="line">                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;购买以恢复&quot;</span><span class="p">);</span>
+</span><span class="line">                <span class="p">[[</span><span class="bp">SKPaymentQueue</span> <span class="n">defaultQueue</span><span class="p">]</span> <span class="nl">finishTransaction</span><span class="p">:</span><span class="n">transaction</span><span class="p">];</span>
+</span><span class="line">                <span class="k">break</span><span class="p">;</span>
+</span><span class="line">            <span class="k">case</span> <span class="nl">SKPaymentTransactionStateFailed</span><span class="p">:</span>
+</span><span class="line">                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;交易失败&quot;</span><span class="p">);</span>
+</span><span class="line">                <span class="k">break</span><span class="p">;</span>
+</span><span class="line">            <span class="k">default</span><span class="o">:</span>
+</span><span class="line">                <span class="k">break</span><span class="p">;</span>
+</span><span class="line">         <span class="p">}</span>
+</span><span class="line">	<span class="p">}</span>
+</span><span class="line"><span class="p">}</span>
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于静态库]]></title>
