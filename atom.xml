@@ -4,7 +4,7 @@
   <title><![CDATA[马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T20:56:03+08:00</updated>
+  <updated>2014-11-04T21:04:11+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -89,13 +89,14 @@
   </li>
 </ul>
 
-<p>{ % codeblock [lang:objc] [test] [www.google.com] [google] % }</p>
-
-<p>NSString *str = [[NSString alloc] init];</p>
-
-<p>NSArray *arr = @[@”哈哈”, str];</p>
-
-<p>{ % endcodeblock % }</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>[test] [www.google.com] [google] </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="objc"><span class="line"><span class="bp">NSString</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class="line">
+</span><span class="line"><span class="bp">NSArray</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&quot;哈哈&quot;</span><span class="p">,</span> <span class="n">str</span><span class="l">]</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 ]]></content>
   </entry>
