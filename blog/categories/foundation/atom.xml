@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类：foundation | 马栈]]></title>
+  <link href="http://syljay0508.github.io/aaron/blog/categories/foundation/atom.xml" rel="self"/>
+  <link href="http://syljay0508.github.io/aaron/"/>
+  <updated>2014-11-04T22:17:56+08:00</updated>
+  <id>http://syljay0508.github.io/aaron/</id>
+  <author>
+    <name><![CDATA[Aaron]]></name>
+    <email><![CDATA[syljay0508@hotmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[关于静态库]]></title>
+    <link href="http://syljay0508.github.io/aaron/blog/guan-yu-jing-tai-ku/"/>
+    <updated>2014-11-02T22:12:03+08:00</updated>
+    <id>http://syljay0508.github.io/aaron/blog/guan-yu-jing-tai-ku</id>
+    <content type="html"><![CDATA[<h4 id="section">前面的话:</h4>
+<p>在我自学的道路上往往遇到很多根本没有过概念的问题, 比如这篇 Blog 的主题:<code>库</code>, 这篇博文就是介绍库是怎么回事, 希望给我们新手一些帮助.</p>
+
+<h4 id="section-1">一、什么是库？</h4>
+
+<p>库是共享程序代码的方式，一般分为静态库和动态库。</p>
+
+<h4 id="section-2">二、静态库与动态库的区别？</h4>
+
+<p>静态库：链接时完整地拷贝至可执行文件中，被多次使用就有多份冗余拷贝。</p>
+
+<p>动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。</p>
+
+<h4 id="ios">三、iOS里静态库形式？</h4>
+
+<p>.a和.framework</p>
+
+<h4 id="ios-1">四、iOS里动态库形式？</h4>
+
+<p>.dylib和.framework</p>
+
+<h4 id="framework">五、framework为什么既是静态库又是动态库？</h4>
+
+<p>系统的.framework是动态库，我们自己建立的.framework是静态库。</p>
+
+<h4 id="aframework">六、a与.framework有什么区别？</h4>
+
+<p>.a是一个纯二进制文件，.framework中除了有二进制文件之外还有资源文件。</p>
+
+<p>.a文件不能直接使用，至少要有.h文件配合，.framework文件可以直接使用。</p>
+
+<p>.a + .h + sourceFile = .framework。</p>
+
+<p>建议用.framework.</p>
+
+<h4 id="section-3">七、为什么要使用静态库？</h4>
+
+<p>方便共享代码，便于合理使用。</p>
+
+<p>实现iOS程序的模块化。可以把固定的业务模块化成静态库。</p>
+
+<p>和别人分享你的代码库，但不想让别人看到你代码的实现。</p>
+
+<p>开发第三方sdk的需要。</p>
+
+<h4 id="section-4">八、制作静态库时的几点注意：</h4>
+
+<ol>
+  <li>
+    <p>注意理解：无论是.a静态库还.framework静态库，我们需要的都是二进制文件+.h+其它资源文件的形式，不同的是，.a本身就是二进制文件，需要我们自己配上.h和其它文件才能使用，而.framework本身已经包含了.h和其它文件，可以直接使用。</p>
+  </li>
+  <li>
+    <p>图片资源的处理：两种静态库，一般都是把图片文件单独的放在一个.bundle文件中，一般.bundle的名字和.a或.framework的名字相同。.bundle文件很好弄，新建一个文件夹，把它改名为.bundle就可以了，右键，显示包内容可以向其中添加图片资源。</p>
+  </li>
+  <li>
+    <p>category是我们实际开发项目中经常用到的，把category打成静态库是没有问题的，但是在用这个静态库的工程中，调用category中的方法时会有找不到该方法的运行时错误（selector not recognized），解决办法是：在使用静态库的工程中配置other linker flags的值为-ObjC。</p>
+  </li>
+  <li>
+    <p>如果一个静态库很复杂，需要暴露的.h比较多的话，就可以在静态库的内部创建一个.h文件（一般这个.h文件的名字和静态库的名字相同），然后把所有需要暴露出来的.h文件都集中放在这个.h文件中，而那些原本需要暴露的.h都不需要再暴露了，只需要把.h暴露出来就可以了。</p>
+  </li>
+</ol>
+]]></content>
+  </entry>
+  
+</feed>

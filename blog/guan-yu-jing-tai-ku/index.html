@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>马栈</title>
+	<title>关于静态库 - 马栈</title>
 	<meta name="author" content="Aaron">
 
 	
-	<meta name="description" content="foundation 关于静态库 前面的话:
+	<meta name="description" content="关于静态库 前面的话:
 在我自学的道路上往往遇到很多根本没有过概念的问题, 比如这篇 Blog 的主题:库, 这篇博文就是介绍库是怎么回事, 希望给我们新手一些帮助. 一、什么是库？ 库是共享程序代码的方式，一般分为静态库和动态库。 二、静态库与动态库的区别？ 静态库： &hellip;">
 	
 
@@ -18,7 +18,7 @@
 
 	<link href="/aaron/atom.xml" rel="alternate" title="马栈" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://syljay0508.github.io/aaron/">
+	<link rel="canonical" href="http://syljay0508.github.io/aaron/blog/guan-yu-jing-tai-ku/">
 	<link href="/aaron/favicon.png" rel="shortcut icon">
 	<link href="/aaron/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -110,37 +110,9 @@
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner">
-<div itemscope itemtype="http://schema.org/Blog">
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-11-02T22:12:03+08:00" data-updated="true" itemprop="datePublished"></time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/aaron/blog/categories/foundation/'>foundation</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/aaron/blog/guan-yu-jing-tai-ku/" itemprop="url">关于静态库</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h4 id="section">前面的话:</h4>
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">关于静态库</h1>
+	<div class="entry-content" itemprop="articleBody"><h4 id="section">前面的话:</h4>
 <p>在我自学的道路上往往遇到很多根本没有过概念的问题, 比如这篇 Blog 的主题:<code>库</code>, 这篇博文就是介绍库是怎么回事, 希望给我们新手一些帮助.</p>
 
 <h4 id="section-1">一、什么是库？</h4>
@@ -201,217 +173,47 @@
     <p>如果一个静态库很复杂，需要暴露的.h比较多的话，就可以在静态库的内部创建一个.h文件（一般这个.h文件的名字和静态库的名字相同），然后把所有需要暴露出来的.h文件都集中放在这个.h文件中，而那些原本需要暴露的.h都不需要再暴露了，只需要把.h暴露出来就可以了。</p>
   </li>
 </ol>
-
-		
-		
-	</div>
+</div>
 
 </article>
 
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-11-02T22:03:58+08:00" data-updated="true" itemprop="datePublished"></time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/aaron/blog/categories/uikit/'>uikit</a>
-
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	<a class="addthis_button_sinaweibo"></a>
+	
+	
+	
+	<a class="addthis_button_twitter"></a>
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
 </div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/aaron/blog/shi-yong-zi-ding-yi-zi-ti/" itemprop="url">使用自定义字体</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>只需在<code>Info.plist</code>文件设置<code>UIAppFonts</code>相关信息即可.</p>
-
-<ol>
-  <li>将自定义字体加到你的工程资源文件中</li>
-  <li>在 info.plist 文件中增加一名为 UIAppFonts 的key(按下回车系统会改成<code>Fonts provided by application</code>)</li>
-  <li>将这个key修改成array</li>
-  <li>将你用到的所有字体的名字，作为这个array的值，一项一项填进去（包括扩展名）</li>
-  <li>保存 info.plist</li>
-</ol>
-
-<p>现在就可以在代码中直接用[UIFont fontWithName:@”CustomFontName” size:12]来取得你自定义的字体了。</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
 
 
 
-
-
-
-
-
-  
-
-
-<time datetime="2014-11-02T19:47:33+08:00" data-updated="true" itemprop="datePublished"></time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/aaron/blog/categories/octopress/'>octopress</a>
-
-
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"aaron2014"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
 </div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/aaron/blog/octopresschang-yong-zhi-ling/" itemprop="url">Octopress常用指令</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>博客已经完成, 记录一下常用到的<code>command</code></p>
-
-<p>在执行任何博客操作的前提是我们进入到这个Octopress目录</p>
-
-<pre><code>cd octopress
-</code></pre>
-
-<p>然后就是各种操作了:</p>
-
-<ol>
-  <li>
-    <p>create一个你的新文章:</p>
-
-    <pre><code> rake new_post["your_title"]
-</code></pre>
-  </li>
-  <li>
-    <p>create一个新页面:</p>
-
-    <pre><code> rake new_page[your_title/newpage.html]
-</code></pre>
-
-    <p>这样会在your_title文件夹下生成一个newpage.html的文件, 部署后可以这样访问</p>
-
-    <pre><code> http://[your_domain_name]/your-title/newpage.html
-</code></pre>
-  </li>
-  <li>
-    <p>setup</p>
-
-    <pre><code> rake generate
-</code></pre>
-
-    <p>执行完octopress会根据修改过的内容重新排版和部署, 但这只是在本地.</p>
-  </li>
-  <li>
-    <p>push</p>
-
-    <pre><code> rake deploy
-</code></pre>
-
-    <p>部署完如果你觉得可以的话就可以push到server上了</p>
-
-    <p>如果你想把文件放到Github上可以这样:</p>
-
-    <pre><code> git add .
- git commit -m "备注内容"
- git push origin source
-</code></pre>
-  </li>
-</ol>
-
-<h4 id="codeblock">CodeBlock使用方法</h4>
-
-<pre><code>{ % codeblock test lang:objc % }
-NSString *str = [[NSString alloc] init];
-NSArray *arr = @[@"哈哈", str];
-{ % endcodeblock % }
-//书写时请去掉{和%之间的空格
-</code></pre>
-
-<p>或者简写成:</p>
-
-<pre><code>``` objc
-
-NSString *str = [[NSString alloc] init];
-
-```
-</code></pre>
-
-<p>效果:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="objc"><span class="line"><span class="bp">NSString</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>更多细节请参考:</p>
-
-<p><a href="http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/">《生命之氢:Octopress 教程目录》</a></p>
-
-<p><a href="http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/">《破船之家:利用Octopress搭建一个Github博客》</a></p>
-
-<p><a href="http://beyondvincent.com/blog/2013/07/27/107-hello-page-of-github/">《破船之家:你好！github页面》</a></p>
-
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-11-02T03:15:25+08:00" data-updated="true" itemprop="datePublished"></time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/aaron/blog/categories/test/'>test</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/aaron/blog/new-post/" itemprop="url">My First Blog</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>博客搬家了, 投入<code>Octopress</code>的怀抱了. 可以尽情的写作了. PS:构建难度还是不小的</p>
-
-		
-		
-	</div>
-
-</article>
-
-</div>
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/aaron/blog/archives">归 档</a></div>
-</nav></div>
 			</div>
 			<footer id="footer" class="inner"><p>
   Copyright &copy; 2014 - Aaron -
