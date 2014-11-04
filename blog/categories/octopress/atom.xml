@@ -4,7 +4,7 @@
   <title><![CDATA[分类：octopress | 马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T21:30:13+08:00</updated>
+  <updated>2014-11-04T21:31:54+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -28,80 +28,71 @@
 <p>然后就是各种操作了:</p>
 
 <ol>
-  <li>
-    <p>create一个你的新文章:</p>
+<li><p>create一个你的新文章:</p>
 
-    <pre><code> rake new_post["your_title"]
-</code></pre>
-  </li>
-  <li>
-    <p>create一个新页面:</p>
+<pre><code> rake new_post["your_title"]
+</code></pre></li>
+<li><p>create一个新页面:</p>
 
-    <pre><code> rake new_page[your_title/newpage.html]
+<pre><code> rake new_page[your_title/newpage.html]
 </code></pre>
 
-    <p>这样会在your_title文件夹下生成一个newpage.html的文件, 部署后可以这样访问</p>
+<p> 这样会在your_title文件夹下生成一个newpage.html的文件, 部署后可以这样访问</p>
 
-    <pre><code> http://[your_domain_name]/your-title/newpage.html
-</code></pre>
-  </li>
-  <li>
-    <p>setup</p>
+<pre><code> http://[your_domain_name]/your-title/newpage.html
+</code></pre></li>
+<li><p>setup</p>
 
-    <pre><code> rake generate
+<pre><code> rake generate
 </code></pre>
 
-    <p>执行完octopress会根据修改过的内容重新排版和部署, 但这只是在本地.</p>
-  </li>
-  <li>
-    <p>push</p>
+<p> 执行完octopress会根据修改过的内容重新排版和部署, 但这只是在本地.</p></li>
+<li><p>push</p>
 
-    <pre><code> rake deploy
+<pre><code> rake deploy
 </code></pre>
 
-    <p>部署完如果你觉得可以的话就可以push到server上了</p>
+<p> 部署完如果你觉得可以的话就可以push到server上了</p>
 
-    <p>如果你想把文件放到Github上可以这样:</p>
+<p> 如果你想把文件放到Github上可以这样:</p>
 
-    <pre><code> git add .
+<pre><code> git add .
  git commit -m "备注内容"
  git push origin source
-</code></pre>
-  </li>
+</code></pre></li>
 </ol>
 
-<h4 id="codeblock">CodeBlock使用方法</h4>
 
-<pre><code>{ % coderay [lang:lang] [linenos:true|false(default)] [title] [url] 	[link text] % }
+<h4>CodeBlock使用方法</h4>
+
+<pre><code>{ % coderay [lang:lang] [linenos:true|false(default)] [title] [url]     [link text] % }
 代码片段
-{ % endcoderay % } 其中:
+{ % endcoderay % }
 </code></pre>
 
-<ul>
-  <li><code>lang:</code>代码使用的语言</li>
-  <li><code>linenos:</code>是否带行号<code>true</code>/<code>false</code>, 缺省默认false</li>
-  <li><code>title:</code>代码框标题</li>
-  <li><code>url:</code>链接, 可以使用下载代码链接</li>
-  <li>
-    <p><code>link text:</code>链接处的文字, 比如<code>Download</code></p>
+<p>其中:</p>
 
-    <p>example:</p>
-  </li>
+<ul>
+<li><code>lang:</code>代码使用的语言</li>
+<li><code>linenos:</code>是否带行号<code>true</code>/<code>false</code>, 缺省默认false</li>
+<li><code>title:</code>代码框标题</li>
+<li><code>url:</code>链接, 可以使用下载代码链接</li>
+<li><p><code>link text:</code>链接处的文字, 比如<code>Download</code></p>
+
+<p>  example:</p></li>
 </ul>
+
 
 <p><figure class='code'><figcaption><span>test</span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="bp">NSString</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-</span><span class='line'><span class="bp">NSArray</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="l">@[</span><span class="p">@</span><span class="err">”哈哈”</span><span class="p">,</span> <span class="n">str</span><span class="l">]</span><span class="p">;</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="bp">NSString</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">str</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'><span class="bp">NSArray</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">arr</span> <span class="o">=</span> <span class="l">@[</span><span class="p">@</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">哈哈</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">str</span><span class="p">];</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>&#8220;` objc</p>
-
-<p>NSString *str = [[NSString alloc] init];</p>
-
-<p>&#8220;`</p>
-
+<pre><code class="objc">
+NSString *str = [[NSString alloc] init];
+</code></pre>
 ]]></content>
   </entry>
   
