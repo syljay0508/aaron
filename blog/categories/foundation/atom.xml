@@ -4,7 +4,7 @@
   <title><![CDATA[分类：foundation | 马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/blog/categories/foundation/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T22:33:07+08:00</updated>
+  <updated>2014-11-04T23:44:37+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -24,9 +24,24 @@
 <h1 id="section-1">内购</h1>
 <p>指通过苹果商店购买App内的虚拟物品</p>
 
-<h4 id="section-2">代码</h4>
+<h4 id="section-2">完整流程</h4>
 
-<p>本教程只讲代码的实现过程, 具体在iTunes Connect的设置另写</p>
+<p><img src="/images/内购流程.jpg" alt="流程" /></p>
+
+<p>这个流程之所以会达到8步, 也得力于”越狱”的贡献, 从而产生了内购破解补丁.
+作为开发者奉劝各位看官, 尽量不要越狱, 不要贪图那几个小钱.</p>
+
+<p>其中有几点注意:</p>
+
+<ul>
+  <li>productID必须同iTunes Connect上申请的产品ID一致.</li>
+  <li>虚拟机不能测试</li>
+  <li>越狱设备不能测试(通过不了)</li>
+</ul>
+
+<h4 id="section-3">代码</h4>
+
+<p>下面代码只模拟一下用户和App Store的交互过程.</p>
 
 <ul>
   <li>添加框架<code>StoreKit.framework</code></li>
@@ -118,6 +133,11 @@
 	-(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
 	//遍历返回的交易的数组
 		for (SKPaymentTransaction *transaction in transactions) {
+			//transaction.transactionState枚举值:
+			SKPaymentTransactionStatePurchasing,    // 这一个是应用商店是正在处理交易的状态  
+			SKPaymentTransactionStatePurchased,     // 这一个是应用商店成功处理付款的状态  
+			SKPaymentTransactionStateFailed,        // 这儿是应用商店处理失败的状态  
+			SKPaymentTransactionStateRestored       // 这个是应用商店恢复之前的状态 
        		switch (transaction.transactionState) {
        			//判断交易结果
 	            case SKPaymentTransactionStatePurchasing:

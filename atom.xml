@@ -4,7 +4,7 @@
   <title><![CDATA[马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T22:33:07+08:00</updated>
+  <updated>2014-11-04T23:44:37+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -24,9 +24,24 @@
 <h1 id="section-1">内购</h1>
 <p>指通过苹果商店购买App内的虚拟物品</p>
 
-<h4 id="section-2">代码</h4>
+<h4 id="section-2">完整流程</h4>
 
-<p>本教程只讲代码的实现过程, 具体在iTunes Connect的设置另写</p>
+<p><img src="http://syljay0508.github.io/aaron/images/内购流程.jpg" alt="流程" /></p>
+
+<p>这个流程之所以会达到8步, 也得力于”越狱”的贡献, 从而产生了内购破解补丁.
+作为开发者奉劝各位看官, 尽量不要越狱, 不要贪图那几个小钱.</p>
+
+<p>其中有几点注意:</p>
+
+<ul>
+  <li>productID必须同iTunes Connect上申请的产品ID一致.</li>
+  <li>虚拟机不能测试</li>
+  <li>越狱设备不能测试(通过不了)</li>
+</ul>
+
+<h4 id="section-3">代码</h4>
+
+<p>下面代码只模拟一下用户和App Store的交互过程.</p>
 
 <ul>
   <li>添加框架<code>StoreKit.framework</code></li>
@@ -179,6 +194,11 @@
 <span class="line-number">42</span>
 <span class="line-number">43</span>
 <span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
 </pre></td><td class="code"><pre><code class="objc"><span class="line"><span class="c1">//判断设备能否支持购买</span>
 </span><span class="line"><span class="k">if</span> <span class="p">([</span><span class="bp">SKPaymentQueue</span> <span class="n">canMakePayments</span><span class="p">]</span> <span class="o">==</span> <span class="nb">YES</span><span class="p">){</span>
 </span><span class="line">	<span class="c1">//支持购买</span>
@@ -196,6 +216,11 @@
 </span><span class="line"><span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">paymentQueue</span><span class="p">:(</span><span class="bp">SKPaymentQueue</span> <span class="o">*</span><span class="p">)</span><span class="n">queue</span> <span class="nl">updatedTransactions</span><span class="p">:(</span><span class="bp">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">transactions</span> <span class="p">{</span>
 </span><span class="line"><span class="c1">//遍历返回的交易的数组</span>
 </span><span class="line">	<span class="k">for</span> <span class="p">(</span><span class="bp">SKPaymentTransaction</span> <span class="o">*</span><span class="n">transaction</span> <span class="k">in</span> <span class="n">transactions</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">		<span class="c1">//transaction.transactionState枚举值:</span>
+</span><span class="line">		<span class="n">SKPaymentTransactionStatePurchasing</span><span class="p">,</span>    <span class="c1">// 这一个是应用商店是正在处理交易的状态  </span>
+</span><span class="line">		<span class="n">SKPaymentTransactionStatePurchased</span><span class="p">,</span>     <span class="c1">// 这一个是应用商店成功处理付款的状态  </span>
+</span><span class="line">		<span class="n">SKPaymentTransactionStateFailed</span><span class="p">,</span>        <span class="c1">// 这儿是应用商店处理失败的状态  </span>
+</span><span class="line">		<span class="n">SKPaymentTransactionStateRestored</span>       <span class="c1">// 这个是应用商店恢复之前的状态 </span>
 </span><span class="line">   		<span class="k">switch</span> <span class="p">(</span><span class="n">transaction</span><span class="p">.</span><span class="n">transactionState</span><span class="p">)</span> <span class="p">{</span>
 </span><span class="line">   			<span class="c1">//判断交易结果</span>
 </span><span class="line">            <span class="k">case</span> <span class="nl">SKPaymentTransactionStatePurchasing</span><span class="p">:</span>
