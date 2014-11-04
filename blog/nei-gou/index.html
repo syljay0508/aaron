@@ -133,22 +133,26 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
-  <li>声明内购产品ID宏
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span></figure></notextile></li>
+  <li>声明内购产品ID宏</li>
 </ul>
-<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line"><span class="cp">#define kSYLTest.testApp.testProduct @&quot;com.syltest.testApp.testProduct&quot;</span>
-</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="objc"><span class="line"><span class="cp">#define kSYLTest.testApp.testProduct @&quot;com.syltest.testApp.testProduct&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
-  <li>声明一个数组, 用来接收内购产品清单
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span></figure></notextile></li>
+  <li>声明一个数组, 用来接收内购产品清单</li>
 </ul>
-<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="bp">NSArray</span> <span class="o">*</span><span class="n">validProducts</span><span class="p">;</span>
-</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="objc"><span class="line"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="bp">NSArray</span> <span class="o">*</span><span class="n">validProducts</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
-  <li>购买前, 先通过产品ID请求产品信息, 需要遵守协议<code>SKProductsRequestDelegate</code>
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+  <li>购买前, 先通过产品ID请求产品信息, 需要遵守协议<code>SKProductsRequestDelegate</code></li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -184,9 +188,7 @@
 <span class="line-number">34</span>
 <span class="line-number">35</span>
 <span class="line-number">36</span>
-<span class="line-number">37</span></figure></notextile></li>
-</ul>
-<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line"><span class="c1">//根据产品ID实例化一个集合</span>
+</pre></td><td class="code"><pre><code class="objc"><span class="line"><span class="c1">//根据产品ID实例化一个集合</span>
 </span><span class="line"><span class="bp">NSSet</span> <span class="o">*</span><span class="n">productIdentifiers</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">kTutorialPointProductID</span><span class="p">,</span><span class="nb">nil</span><span class="p">];</span>
 </span><span class="line"><span class="c1">//根据这个集合实例化内购产品信息请求</span>
 </span><span class="line"><span class="bp">SKProductsRequest</span> <span class="o">*</span><span class="n">productsRequest</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">SKProductsRequest</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithProductIdentifiers</span><span class="p">:</span><span class="n">productIdentifiers</span><span class="p">];</span>
@@ -194,7 +196,6 @@
 </span><span class="line">   	<span class="n">productsRequest</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
 </span><span class="line">   	<span class="c1">//异步请求</span>
 </span><span class="line">   	<span class="p">[</span><span class="n">productsRequest</span> <span class="n">start</span><span class="p">];</span>
-</span><span class="line">   	
 </span><span class="line"><span class="p">......</span>
 </span><span class="line"><span class="c1">//协议方法</span>
 </span><span class="line"><span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">productsRequest</span><span class="p">:(</span><span class="bp">SKProductsRequest</span> <span class="o">*</span><span class="p">)</span><span class="n">request</span> <span class="nl">didReceiveResponse</span><span class="p">:(</span><span class="bp">SKProductsResponse</span> <span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">{</span>
@@ -223,11 +224,13 @@
 </span><span class="line">        <span class="p">[</span><span class="n">tmp</span> <span class="n">show</span><span class="p">];</span>
 </span><span class="line">	<span class="p">}</span>
 </span><span class="line"><span class="p">}</span>
-</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ol>
-  <li>触发购买事件, 遵守协议:<code>SKPaymentTransactionObserver</code>
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+  <li>触发购买事件, 遵守协议:<code>SKPaymentTransactionObserver</code></li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -271,9 +274,7 @@
 <span class="line-number">42</span>
 <span class="line-number">43</span>
 <span class="line-number">44</span>
-<span class="line-number">45</span></figure></notextile></li>
-</ol>
-<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="objc"><span class="line"><span class="c1">//判断设备能否支持购买</span>
+</pre></td><td class="code"><pre><code class="objc"><span class="line"><span class="c1">//判断设备能否支持购买</span>
 </span><span class="line"><span class="k">if</span> <span class="p">([</span><span class="bp">SKPaymentQueue</span> <span class="n">canMakePayments</span><span class="p">]</span> <span class="o">==</span> <span class="nb">YES</span><span class="p">){</span>
 </span><span class="line">	<span class="c1">//支持购买</span>
 </span><span class="line">	<span class="c1">//根据购买产品实例化支付对象</span>
@@ -285,7 +286,6 @@
 </span><span class="line"><span class="p">}</span><span class="k">else</span> <span class="p">{</span>
 </span><span class="line">	<span class="n">NSLog</span><span class="p">(</span><span class="s">&quot;该设备不支持购买&quot;</span><span class="p">)</span>
 </span><span class="line"><span class="p">}</span>
-</span><span class="line">
 </span><span class="line"><span class="p">......</span>
 </span><span class="line"><span class="c1">//协议方法</span>
 </span><span class="line"><span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">paymentQueue</span><span class="p">:(</span><span class="bp">SKPaymentQueue</span> <span class="o">*</span><span class="p">)</span><span class="n">queue</span> <span class="nl">updatedTransactions</span><span class="p">:(</span><span class="bp">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">transactions</span> <span class="p">{</span>
@@ -318,7 +318,7 @@
 </span><span class="line">         <span class="p">}</span>
 </span><span class="line">	<span class="p">}</span>
 </span><span class="line"><span class="p">}</span>
-</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;</p>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
 
 </article>
