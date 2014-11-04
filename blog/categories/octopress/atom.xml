@@ -4,7 +4,7 @@
   <title><![CDATA[分类：octopress | 马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T20:48:51+08:00</updated>
+  <updated>2014-11-04T20:53:58+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -89,7 +89,7 @@
   </li>
 </ul>
 
-<p>{ % codeblock lang:objc % }</p>
+<p>{ % codeblock [lang:objc] [test] [www.google.com] [google] % }</p>
 
 <p>NSString *str = [[NSString alloc] init];</p>
 
