@@ -207,13 +207,16 @@
     <p><code>link text:</code>链接处的文字, 比如<code>Download</code></p>
 
     <p>example:</p>
-
-    <p>{ % codeblock [lang:objc] [linenos:true] [test] [www.google.com][google一下] % }
-  NSString *str = [[NSString alloc] init];
-  NSArray *arr = @[@”哈哈”, str];
-  { % endcodeblock % }</p>
   </li>
 </ul>
+
+<p>{ % codeblock lang:objc % }</p>
+
+<p>NSString *str = [[NSString alloc] init];</p>
+
+<p>NSArray *arr = @[@”哈哈”, str];</p>
+
+<p>{ % endcodeblock % }</p>
 
 
 		
