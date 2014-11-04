@@ -4,7 +4,7 @@
   <title><![CDATA[分类：foundation | 马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/blog/categories/foundation/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T22:31:57+08:00</updated>
+  <updated>2014-11-04T22:33:07+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -96,9 +96,9 @@
 	}
 </code></p>
 
-<ol>
+<ul>
   <li>触发购买事件, 遵守协议:<code>SKPaymentTransactionObserver</code></li>
-</ol>
+</ul>
 
 <p><code>objc	
 	//判断设备能否支持购买

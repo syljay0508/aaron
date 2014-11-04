@@ -4,7 +4,7 @@
   <title><![CDATA[马栈]]></title>
   <link href="http://syljay0508.github.io/aaron/atom.xml" rel="self"/>
   <link href="http://syljay0508.github.io/aaron/"/>
-  <updated>2014-11-04T22:31:57+08:00</updated>
+  <updated>2014-11-04T22:33:07+08:00</updated>
   <id>http://syljay0508.github.io/aaron/</id>
   <author>
     <name><![CDATA[Aaron]]></name>
@@ -131,9 +131,9 @@
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<ol>
+<ul>
   <li>触发购买事件, 遵守协议:<code>SKPaymentTransactionObserver</code></li>
-</ol>
+</ul>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
